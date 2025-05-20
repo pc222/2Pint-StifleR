@@ -893,30 +893,6 @@ If (((Get-Variable -Name "Config_*").Value) -or ($EnableBetaFeatures -eq $true) 
             }   
         }
 
-        If ($DefaultNonRedLeaderDOPolicy) {
-            New-AppSetting $StifleRConfig "DefaultNonRedLeaderDOPolicy" "$DefaultNonRedLeaderDOPolicy"    
-            Write-Debug "Adding DefaultNonRedLeaderDOPolicy to the app config"
-            $(TimeStamp) + "Adding DefaultNonRedLeaderDOPolicy to the app config:" | Out-File -FilePath $Logfile -Append -Encoding ascii
-        }
-
-        If ($DefaultNonRedLeaderBITSPolicy) {
-            New-AppSetting $StifleRConfig "DefaultNonRedLeaderBITSPolicy" "$DefaultNonRedLeaderBITSPolicy"    
-            Write-Debug "Adding DefaultNonRedLeaderBITSPolicy to the app config"
-            $(TimeStamp) + "Adding DefaultNonRedLeaderBITSPolicy to the app config:" | Out-File -FilePath $Logfile -Append -Encoding ascii
-        }
-
-        If ($DefaultDisconnectedDOPolicy) {
-            New-AppSetting $StifleRConfig "DefaultDisconnectedDOPolicy" "$DefaultDisconnectedDOPolicy"    
-            Write-Debug "Adding DefaultDisconnectedDOPolicy to the app config"
-            $(TimeStamp) + "Adding DefaultDisconnectedDOPolicy to the app config:" | Out-File -FilePath $Logfile -Append -Encoding ascii
-        }
-
-        If ($DefaultDisconnectedBITSPolicy) {
-            New-AppSetting $StifleRConfig "DefaultDisconnectedBITSPolicy" "$DefaultDisconnectedBITSPolicy"    
-            Write-Debug "Adding DefaultDisconnectedBITSPolicy to the app config"
-            $(TimeStamp) + "Adding DefaultDisconnectedBITSPolicy to the app config:" | Out-File -FilePath $Logfile -Append -Encoding ascii
-        }
-
         #enable all debug logging if that switch is $true
         If ($FullDebugMode -eq $true) {
             $xml = [xml](Get-Content $StifleRConfig)
